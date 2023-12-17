@@ -10,12 +10,14 @@ var currentDayElement = $("#currentDay");
 
 // Gets the current date and time using day.js() and formats it to a string in the 'LLLL' style.
 
-var nowVariable = dayjs().format('LLLL');
+var nowVariable = dayjs().format('dddd, MMMM D, YYYY h:mm A	');
 
 // Selects the #currentDay element from the HTML file, and generates text based on the logic run within the 
 // nowVariable
 
 currentDayElement.text(nowVariable);
+
+console.log(nowVariable);
 
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
