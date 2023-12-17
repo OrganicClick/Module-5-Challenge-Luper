@@ -1,23 +1,5 @@
 //**CODE TO BE RELOCATED TO APPROPRIATE LOCATION**
-// The following section of code is intended to satisfy the first Acceptance Criterion: 
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
 
-
-// Defines variables that select the #currentDay from the HTML file (currentDayElement).
-
-var currentDayElement = $("#currentDay");
-
-// Gets the current date and time using day.js() and formats it to a string in the 'LLLL' style.
-
-var nowVariable = dayjs().format('dddd, MMMM D, YYYY h:mm A	');
-
-// Selects the #currentDay element from the HTML file, and generates text based on the logic run within the 
-// nowVariable
-
-currentDayElement.text(nowVariable);
-
-console.log(nowVariable);
 
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
@@ -42,4 +24,24 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+
+  // The following section of code is intended to satisfy the first Acceptance Criterion: 
+    // WHEN I open the planner
+    // THEN the current day is displayed at the top of the calendar
+
+
+    // Defines variables that select the #currentDay from the HTML file (currentDayElement).
+
+    var currentDayElement = $("#currentDay");
+
+    // Gets the current date and time using day.js() and formats it to a string in the 'LLLL' style.
+
+    var nowVariable = dayjs().format('dddd, MMMM D, YYYY h:mm A	');
+
+    // Selects the #currentDay element from the HTML file, and generates text based on the logic run within the 
+    // nowVariable
+
+    currentDayElement.text(nowVariable);
+
+    console.log(nowVariable);
 });
