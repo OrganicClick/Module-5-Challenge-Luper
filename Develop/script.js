@@ -1,5 +1,19 @@
 //**CODE TO BE RELOCATED TO APPROPRIATE LOCATION**
 
+// Need to create function/method that selects a given time block based on what 
+// time it is. Eventlistener that uses dayjs() to check what time it currently is. 
+//
+// IF the current time is within a given time block
+//    THEN color-code that time block green
+//    AND color-code the next time block hour red
+//
+//ELSE the time block should remain a default gray color-coding
+//
+//
+// function ()
+//
+//
+//
 
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
@@ -25,7 +39,6 @@ $(function () {
   //
 
 
-  //
   // TODO: Add code to display the current date in the header of the page.
 
   // The following section of code is intended to satisfy the first Acceptance Criterion: 
