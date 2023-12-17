@@ -3,10 +3,6 @@
 // WHEN I open the planner
 // THEN the current day is displayed at the top of the calendar
 
-// Imports localizedFormat plug-in for dayjs API and allows the plug-in to be used
-
-var localizedFormat = require('dayjs/plugin/localizedFormat')
-dayjs.extend(localizedFormat)
 
 // Defines variables that select the #currentDay from the HTML file (currentDayElement).
 
