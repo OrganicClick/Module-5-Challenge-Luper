@@ -1,3 +1,27 @@
+//**CODE TO BE RELOCATED TO APPROPRIATE LOCATION**
+// The following section of code is intended to satisfy the first Acceptance Criterion: 
+// WHEN I open the planner
+// THEN the current day is displayed at the top of the calendar
+
+// Imports localizedFormat plug-in for dayjs API and allows the plug-in to be used
+
+var localizedFormat = require('dayjs/plugin/localizedFormat')
+dayjs.extend(localizedFormat)
+
+// Defines variables that select the #currentDay from the HTML file (currentDayElement).
+
+var currentDayElement = $("#currentDay");
+
+// Gets the current date and time using day.js() and formats it to a string in the 'LLLL' style.
+
+var nowVariable = dayjs().format('LLLL');
+
+// Selects the #currentDay element from the HTML file, and generates text based on the logic run within the 
+// nowVariable
+
+currentDayElement.text(nowVariable);
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
