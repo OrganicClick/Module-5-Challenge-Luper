@@ -7,7 +7,7 @@ Create a simple calendar application that allows a user to save events for each 
 The starter code uses the Day.jsLinks to an external site. library to work with date and time, but feel free to use a different JavaScript solution to handle this functionality.
 
 SCREENSHOT:
-![Screenshot of Work Day Scheduler App](<Screenshot 2023-12-17 at 11.25.56 PM.png>)
+![Screenshot of Work Day Scheduler App](./assets/img/Project_Screenshot_Module_5.png)
 
 USER STORY:
 
