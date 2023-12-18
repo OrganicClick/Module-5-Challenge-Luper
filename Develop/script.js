@@ -1,36 +1,5 @@
 //**CODE TO BE RELOCATED TO APPROPRIATE LOCATION**
 
-// Need to create function/method that selects a given time block based on what 
-// time it is. Eventlistener that uses dayjs() to check what time it currently is. 
-//
-// IF the current time is within a given time block
-//    THEN color-code that time block green
-//    AND color-code every time block after the current block to blue to indicate that the time is in the future
-//    AND color-code every time block before the current block to gray to indicate the the time is in the past 
-//
-// Get the current hour using dayjs
- var currentHour = dayjs().hour();
-
-// Loops through each time block, running the function within to compare and color-code each time-block-container
-$(".time-block-container").each(function() {
-  // Created variable that stores value of parseInt function, that parses the hour from each time block's ID
-  var blockHour = parseInt($(this).attr("id").split("-")[1]);
-
-  // Constructs logic argument to color-code each time-block-container based on comparison between blockHour and
-  // currentHour values
-  if (blockHour < currentHour) {
-    // Past time block, color-code to gray
-    $(this).addClass("past");
-  } else if (blockHour === currentHour) {
-    // Current time block, color-code to green
-    $(this).addClass("present");
-  } else {
-    // Future time block, color-code to blue
-    $(this).addClass("future");
-  }
-
- });
-
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
