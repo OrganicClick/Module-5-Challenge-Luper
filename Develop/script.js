@@ -10,13 +10,7 @@
 //
 // Get the current hour using dayjs
  var currentHour = dayjs().hour();
-//
-// Create a selector that changes the element selected based on 
-// Function needs to take the value of currentHour and select the time-block based on the id that has the same value.
-// Parse the id, get the number from the id, and compare this to currentHour
-//
-// 
-// 
+
 // Loops through each time block, running the function within to compare and color-code each time-block-container
 $(".time-block-container").each(function() {
   // Created variable that stores value of parseInt function, that parses the hour from each time block's ID
@@ -54,6 +48,28 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+  // Get the current hour using dayjs, using 24-hour format
+ var currentHour = dayjs().hour();
+ 
+ // Loops through each time block, running the function within to compare and color-code each time-block-container
+ $(".time-block-container").each(function() {
+   // Created variable that stores value of parseInt function, that parses the hour from each time block's ID
+   var blockHour = parseInt($(this).attr("id").split("-")[1]);
+ 
+   // Constructs logic argument to color-code each time-block-container based on comparison between blockHour and
+   // currentHour values
+   if (blockHour < currentHour) {
+     // Past time block, color-code to gray
+     $(this).addClass("past");
+   } else if (blockHour === currentHour) {
+     // Current time block, color-code to green
+     $(this).addClass("present");
+   } else {
+     // Future time block, color-code to blue
+     $(this).addClass("future");
+   }
+ 
+  });
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
