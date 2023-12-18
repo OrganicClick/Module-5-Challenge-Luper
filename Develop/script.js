@@ -52,6 +52,13 @@ $(document).ready(function() {
   
       // Check if blockHour is a valid number, added as an additional check due to unexpected errors generated during testing.
       if (!isNaN(blockHour)) {
+
+        // Creates variable to store retrieved user input from local storage using the time block ID as a key.
+        var retrieveUserInput = localStorage.getItem("hour-" + blockHour);
+  
+        // Set the value of the textarea, within the relevant time-block-container, to the retrieved user input.
+        $(this).find(".description").val(retrieveUserInput);
+        
          // Constructs logic argument to color-code each time-block-container based on comparison between blockHour and
          // currentHour values
         if (blockHour < currentHour) {
