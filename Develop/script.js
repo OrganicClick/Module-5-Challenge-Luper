@@ -16,6 +16,9 @@ $(document).ready(function() {
   //
   // Get the current hour using dayjs, using 24-hour format
   var currentHour = dayjs().hour();
+
+  // Logs the value of currentHour to console
+  console.log("Current Hour:", currentHour);
  
   $(".time-block-container").each(function() {
     // Extract the hour part from the ID
