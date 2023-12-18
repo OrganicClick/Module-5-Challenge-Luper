@@ -22,6 +22,19 @@ $(".time-block-container").each(function() {
   // Created variable that stores value of parseInt function, that parses the hour from each time block's ID
   var blockHour = parseInt($(this).attr("id").split("-")[1]);
 
+  // Constructs logic argument to color-code each time-block-container based on comparison between blockHour and
+  // currentHour values
+  if (blockHour < currentHour) {
+    // Past time block, color-code to gray
+    $(this).addClass("past");
+  } else if (blockHour === currentHour) {
+    // Current time block, color-code to green
+    $(this).addClass("present");
+  } else {
+    // Future time block, color-code to blue
+    $(this).addClass("future");
+  }
+
  });
 
 
