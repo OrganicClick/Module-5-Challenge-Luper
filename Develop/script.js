@@ -5,14 +5,18 @@
 //
 // IF the current time is within a given time block
 //    THEN color-code that time block green
-//    AND color-code the next time block hour red
+//    AND color-code every time block after the current block to blue to indicate that the time is in the future
+//    AND color-code every time block before the current block to gray to indicate the the time is in the past 
 //
-//ELSE the time block should remain a default gray color-coding
+ var currentHour = dayjs().hour();
 //
+// Create a selector that changes the element selected based on 
+// Function needs to take the value of currentHour and select the time-block based on the id that has the same value.
+// Parse the id, get the number from the id, and compare this to currentHour
 //
-// function ()
-//
-//
+
+$(".row time-block")
+//    
 //
 
 
