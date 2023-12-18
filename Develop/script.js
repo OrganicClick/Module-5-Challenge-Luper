@@ -5,13 +5,21 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(document).ready(function() {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
+ 
+    // Add a click event listener to all elements with class saveBtn
+    $(".saveBtn").on("click", function() {
+      // Get the ID of the parent time-block container, which will be the corresponding time-block hour. This
+      // is written so that the timeBlockID stores the value of the nearest time-block-container to the save
+      // button that is clicked.
+      var timeBlockID = $(this).closest(".time-block-container").attr("id");
+  
+      // Get the user input from the textarea within the same time block. The syntax here is structured to identify the '.description'
+      // class as a sibling to the save button.
+      var userInput = $(this).siblings(".description").val();
+  
+      // Save the user input in local storage using the time block ID as a key
+      localStorage.setItem(timeBlockID, userInput);
+    });
 
   //
   // Get the current hour using dayjs, using 24-hour format
@@ -66,14 +74,6 @@ $(document).ready(function() {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
-
-
-  // TODO: Add code to display the current date in the header of the page.
-
-  // The following section of code is intended to satisfy the first Acceptance Criterion: 
-    // WHEN I open the planner
-    // THEN the current day is displayed at the top of the calendar
 
 
     // Defines variables that select the #currentDay from the HTML file (currentDayElement).
