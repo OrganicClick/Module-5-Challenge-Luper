@@ -13,12 +13,12 @@ $(document).ready(function() {
   // useful when saving the description in local storage?
   //
   // Get the current hour using dayjs, using 24-hour format
-  var currentHour = dayjs().set('hour', 12).set('minute', 0).set('second', 0);
+  var currentHour = dayjs().set('hour', 9).set('minute', 0).set('second', 0);
  
  // Loops through each time block, running the function within to compare and color-code each time-block-container
  $(".time-block-container").each(function() {
    // Created variable that stores value of parseInt function, that parses the hour from each time block's ID
-   var blockHour = parseInt($(this).attr("id").split("-")[1]);
+   var blockHour = parseInt($(this).attr("id").split("-")[2]);
  
    // Constructs logic argument to color-code each time-block-container based on comparison between blockHour and
    // currentHour values
