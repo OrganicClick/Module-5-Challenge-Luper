@@ -35,13 +35,15 @@ textarea {
   color: white;
 }
 
+/* Changed from red to green, to reflect my preference in design*/
 .present {
-  background-color: #ff6961;
+  background-color: lightgreen;
   color: white;
 }
 
+/* Changed from green to blue, to reflect my preference in design*/
 .future {
-  background-color: #77dd77;
+  background-color: lightskyblue;
   color: white;
 }
 
