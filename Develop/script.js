@@ -15,12 +15,14 @@
 // Function needs to take the value of currentHour and select the time-block based on the id that has the same value.
 // Parse the id, get the number from the id, and compare this to currentHour
 //
-// Creates a selector for the ID time-block-container
 // 
-//
-$("#time-block-container").on(currentHour);
-//    
-//
+// 
+// Loops through each time block, running the function within to compare and color-code each time-block-container
+$("#time-block-container").each(function() {
+  // Created variable that stores value of parseInt function, that parses the hour from each time block's ID
+  var blockHour = parseInt($(this).attr("id").split("-")[1]);
+
+ });
 
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
