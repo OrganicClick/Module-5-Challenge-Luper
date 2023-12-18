@@ -18,7 +18,7 @@
 // 
 // 
 // Loops through each time block, running the function within to compare and color-code each time-block-container
-$("#time-block-container").each(function() {
+$(".time-block-container").each(function() {
   // Created variable that stores value of parseInt function, that parses the hour from each time block's ID
   var blockHour = parseInt($(this).attr("id").split("-")[1]);
 
