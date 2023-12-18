@@ -12,29 +12,54 @@ $(document).ready(function() {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  // Get the current hour using dayjs, using 24-hour format
-  var currentHour = dayjs().set('hour', 9).set('minute', 0).set('second', 0);
- 
- // Loops through each time block, running the function within to compare and color-code each time-block-container
- $(".time-block-container").each(function() {
-   // Created variable that stores value of parseInt function, that parses the hour from each time block's ID
-   var blockHour = parseInt($(this).attr("id").split("-")[2]);
- 
-   // Constructs logic argument to color-code each time-block-container based on comparison between blockHour and
-   // currentHour values
-   if (blockHour < currentHour) {
-     // Past time block, color-code to gray
-     $(this).addClass("past");
-   } else if (blockHour === currentHour) {
-     // Current time block, color-code to green
-     $(this).addClass("present");
-   } else {
-     // Future time block, color-code to blue
-     $(this).addClass("future");
-   }
- 
-  });
+
   //
+  // Get the current hour using dayjs, using 24-hour format
+  var currentHour = dayjs().hour();
+ 
+  $(".time-block-container").each(function() {
+    // Extract the hour part from the ID
+    var idParts = $(this).attr("id").split("-");
+    
+    // Check if the ID has the expected structure, which is two parts separated by a hyphen. This also creates a variable that 
+    // has a stored value of the second index item of the array (the array being the id of the container, with two indeces separated by
+    // a hyphen).
+    if (idParts.length === 2) {
+      var blockHourString = idParts[1];
+  
+      // Log the ID parts for debugging
+      console.log("ID Parts:", idParts);
+      console.log("blockHourString:", blockHourString);
+  
+      // Parse the blockHourString to an integer. This converts the string value stored within the blockHourString into an integer.
+      // Function was breaking before I think because string was not being converted into an integer so values weren't being compared
+      // appropriately between currentHour and blockhour.
+      var blockHour = parseInt(blockHourString);
+  
+      // Log the parsed blockHour for debugging
+      console.log("blockHour:", blockHour);
+  
+      // Check if blockHour is a valid number, added as an additional check due to unexpected errors generated during testing.
+      if (!isNaN(blockHour)) {
+         // Constructs logic argument to color-code each time-block-container based on comparison between blockHour and
+         // currentHour values
+        if (blockHour < currentHour) {
+          $(this).addClass("past");
+        } else if (blockHour === currentHour) {
+          $(this).addClass("present");
+        } else {
+          $(this).addClass("future");
+        }
+      } else {
+        // Log an error or handle the case where blockHour is not a valid number
+        console.error("Invalid blockHour:", blockHourString);
+      }
+    } else {
+      // Log an error or handle the case where the ID structure is unexpected
+      console.error("Unexpected ID structure:", idParts);
+    }
+  });
+
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
@@ -63,3 +88,4 @@ $(document).ready(function() {
 
     console.log(nowVariable);
 });
+
